@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jiwon.common.Pagination;
 import com.jiwon.common.Search;
 import com.jiwon.web.board.model.BoardVO;
+import com.jiwon.web.board.model.ReplyVO;
 import com.jiwon.web.board.service.BoardService;
 
 @Controller
@@ -70,7 +71,8 @@ public class BoardController {
 	public String getBoardContent(Model model, @RequestParam("bid") int bid) throws Exception {
 
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
-		model.addAttribute("boardVO", new BoardVO());
+		model.addAttribute("replyVO", new ReplyVO());
+
 		
 		return "board/boardContent";
 	}

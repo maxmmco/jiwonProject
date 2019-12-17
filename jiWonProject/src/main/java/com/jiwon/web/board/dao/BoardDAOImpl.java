@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.jiwon.common.Pagination;
 import com.jiwon.common.Search;
 import com.jiwon.web.board.model.BoardVO;
+import com.jiwon.web.board.model.ReplyVO;
 
 
 @Repository
@@ -29,7 +30,7 @@ public class BoardDAOImpl implements BoardDAO {
 
   		return sqlSession.selectList("com.jiwon.web.board.boardMapper.getBoardList", search);
 
-  	}
+  	} 
 
 
 
@@ -90,7 +91,45 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.update("com.jiwon.web.board.boardMapper.updateViewCnt", bid);
 
     }
-    // ´ñ±Û ¸®½ºÆ®
+ // ´ñ±Û ¸®½ºÆ®
+
+ 	@Override
+
+ 	public List<ReplyVO> getReplyList(int bid) throws Exception {
+
+ 		return sqlSession.selectList("com.jiwon.web.board.replyMapper.getReplyList", bid);
+
+ 	}
+
+
+
+ 	@Override
+
+ 	public int saveReply(ReplyVO replyVO) throws Exception {
+
+ 		return sqlSession.insert("com.jiwon.web.board.replyMapper.saveReply", replyVO);
+
+ 	}
+
+
+
+ 	@Override
+
+ 	public int updateReply(ReplyVO replyVO) throws Exception {
+
+ 		return sqlSession.update("com.jiwon.web.board.replyMapper.updateReply", replyVO);
+
+ 	}
+
+
+
+ 	@Override
+
+ 	public int deleteReply(int rid) throws Exception {
+
+ 		return sqlSession.delete("com.jiwon.web.board.replyMapper.deleteReply", rid);
+
+ 	}
 
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jiwon.common.Pagination;
 import com.jiwon.common.Search;
 import com.jiwon.web.board.model.BoardVO;
+import com.jiwon.web.board.model.ReplyVO;
 
 @Service
 public interface BoardService {
@@ -25,6 +26,23 @@ public interface BoardService {
 	public void updateBoard(BoardVO boardVO) throws Exception;
 	
 	public void deleteBoard(int bid) throws Exception;
+	
+	// ´ñ±Û ¸®½ºÆ®
+		public List<ReplyVO> getReplyList(int bid) throws Exception;
+
+		
+
+		public int saveReply(ReplyVO replyVO) throws Exception;
+
+		
+
+		public int updateReply(ReplyVO replyVO) throws Exception;
+
+		
+
+		public int deleteReply(int rid) throws Exception;
+
+
 
 
 
